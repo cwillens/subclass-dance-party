@@ -3,7 +3,7 @@ body, html{
 }
 body{
   margin: 0px;
-  background-color:#444;
+  background-image: url("background_dance.jpg");
   font-size: 18px;
 }
 body, a:link, a:visited, a:active{
@@ -24,4 +24,15 @@ body, a:link, a:visited, a:active{
   border:10px solid red;
   border-radius:10px;
   position:absolute;
+}
+.cat{
+  border:1px solid blue;
+  border-radius:60px;
+  position:absolute;
+  height:100px;
+  width: 100px;
+  background-image: url("suit-cat.jpg");
+  background-size: 140px 100px;
+  background-repeat: no-repeat;
+  background-position: center; 
 }

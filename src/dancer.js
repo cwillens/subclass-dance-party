@@ -1,17 +1,18 @@
 // Creates and returns a new dancer object that can step
 var makeDancer = function(top, left, timeBetweenSteps) {
-  this.$node = $('<span class="dancer"></span>');
+  this.$node = $('<span class="dancer"></span>'); // 
   this.timeBetweenSteps = timeBetweenSteps;
-  //debugger;
-  this.step();
-  this.setPosition(top, left);
+  this.step.call(this); // this calls the subclass 'step function'
+  this.setPosition.call(this, top, left);
+  this.top = top;
+  this.left = left;
 };
 
 makeDancer.prototype.step = function() {
   // the basic dancer doesn't do anything interesting at all on each step,
   // it just schedules the next step
   //debugger;
-  setTimeout(this.step.bind(this), this.timeBetweenSteps);
+  setTimeout(this.step.bind(this), this.timeBetweenSteps); //
 };
 
 makeDancer.prototype.setPosition = function(top, left) {
