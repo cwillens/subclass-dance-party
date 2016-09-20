@@ -2,15 +2,6 @@
 var makeDancer = function(top, left, timeBetweenSteps) {
   this.$node = $('<span class="dancer"></span>'); // 
 
-  this.$node.mousedown(function(event) {
-    console.log('hi');
-  //   this.$node.animate({
-  //     height: '150px',
-  //     width: '150px'
-  //   }, 500, function() {
-  // // Animation complete.
-  //   });
-  });
 
 
   this.timeBetweenSteps = timeBetweenSteps;
@@ -18,6 +9,7 @@ var makeDancer = function(top, left, timeBetweenSteps) {
   this.setPosition.call(this, top, left);
   this.top = top;
   this.left = left;
+  setInterval(this.checkDist, 1);
 };
 
 makeDancer.prototype.step = function() {
@@ -37,6 +29,17 @@ makeDancer.prototype.setPosition = function(top, left) {
   };
   this.$node.css(styleSettings);
 };
+
+makeDancer.prototype.checkDist = function() {
+      //create function
+  //for each cat
+    //loop through all other cats and calculate distance between positions
+      //if distance is below a threshold
+        //set a temp var = step;
+        //set step function to {};
+        //animate them to go opposite directions
+        //set step function back to normal, call step function
+      };
 
 
 /*

@@ -4,7 +4,7 @@ var makeCatDancer = function(top, left, timeBetweenSteps) {
   // need this call to give non-method properties to the subclass instance
   this.$node = $('<span class="cat"></span>'); 
 
-  
+
   this.$node.mousedown(function(event) {
     console.log('hi');
   //   this.$node.animate({
@@ -27,7 +27,7 @@ makeCatDancer.prototype.step = function() {
   this.$node.animate({
     top: $("body").height() * Math.random(),
     left: $("body").width() * Math.random()
-  }, this.timeBetweenSteps, function() {
+  }, 1000, function() {
 // Animation complete.
   });
 
@@ -36,3 +36,12 @@ makeCatDancer.prototype.step = function() {
   // when you actually need to call the 'step' method of the superclass
   //this.$node.toggle(); // 'this' is bound to an instance of makeBlinkyDancer class
 };
+
+//create function
+  //for each cat
+    //loop through all other cats and calculate distance between positions
+      //if distance is below a threshold
+        //set a temp var = step;
+        //set step function to {};
+        //animate them to go opposite directions
+        //set step function back to normal, call step function

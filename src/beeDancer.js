@@ -5,7 +5,6 @@ var makeBeeDancer = function(top, left, timeBetweenSteps) {
   this.$node = $('<span class="bees"></span>'); 
 
   this.$node.mousedown(function(event) {
-    debugger;
     $(this).animate({
       height: '150px',
       width: '150px'

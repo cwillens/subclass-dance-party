@@ -25,7 +25,7 @@ $(document).ready(function() {
     var dancer = new dancerMakerFunction( // new keyword is required for pseudoclassical instantiation
       $("body").height() * Math.random(),
       $("body").width() * Math.random(),
-      Math.random() * 1000
+      1
     );
     $('body').append(dancer.$node);
     window.dancers.push(dancer);
@@ -62,6 +62,10 @@ $(document).ready(function() {
       currentDancer.step = function() {
         //do nothing
       };
+
+      currentDancer.checkDist = function() {
+        //do nothing
+      };
     }
 
     setTimeout(function() {
@@ -85,7 +89,52 @@ $(document).ready(function() {
       }
     }, 2000);
 
+
+
+
   });
+
+  var counter = 0;
+  var checkDist = function() {
+        //create function
+    //for current cat
+      //loop through all other cats and calculate distance between positions
+        //if distance is below a threshold
+          //set a temp var = step;
+          //set step function to {};
+          //animate them to go opposite directions
+          //set step function back to normal, call step function
+    for (var i = 0; i < window.dancers.length; i++) {
+      var currentCat = window.dancers[i];
+      var catHeight = Number(currentCat.$node.css('height').slice(0, -2)); 
+      var catTop = Number(currentCat.$node.css('top').slice(0, -2));
+      var catLeft = Number(currentCat.$node.css('left').slice(0, -2));
+      var catWidth = Number(currentCat.$node.css('width').slice(0, -2));
+
+      var cat1Loc = [catTop + catHeight / 2, catLeft + catWidth / 2];
+      for (var j = i + 1; j < window.dancers.length; j++) {
+        var otherCat = window.dancers[j];
+        var otherCatHeight = Number(otherCat.$node.css('height').slice(0, -2)); 
+        var otherCatTop = Number(otherCat.$node.css('top').slice(0, -2));
+        var otherCatLeft = Number(otherCat.$node.css('left').slice(0, -2));
+        var otherCatWidth = Number(otherCat.$node.css('width').slice(0, -2));
+
+        var cat2Loc = [otherCatTop + otherCatHeight / 2, otherCatLeft + otherCatWidth / 2];
+        var distance = Math.sqrt(Math.pow((cat1Loc[0] - cat2Loc[0]), 2) + Math.pow((cat1Loc[1] - cat2Loc[1]), 2));
+        console.log('cats ' + i + ' ' + j + ' ' + distance);
+
+        //if distance less than threshold, bounce apart
+        if (distance <= (catHeight / 2) + (otherCatHeight / 2)) {
+          currentCat.$node.stop(true, false);
+          otherCat.$node.stop(true, false);
+        }
+      }
+      
+      //console.log('cat ' + i + ' at ' + cat1Loc);
+    }
+  };
+
+  setInterval(checkDist, 133);
 
 });
 
