@@ -1,6 +1,18 @@
 // Creates and returns a new dancer object that can step
 var makeDancer = function(top, left, timeBetweenSteps) {
   this.$node = $('<span class="dancer"></span>'); // 
+
+  this.$node.mousedown(function(event) {
+    console.log('hi');
+  //   this.$node.animate({
+  //     height: '150px',
+  //     width: '150px'
+  //   }, 500, function() {
+  // // Animation complete.
+  //   });
+  });
+
+
   this.timeBetweenSteps = timeBetweenSteps;
   this.step.call(this); // this calls the subclass 'step function'
   this.setPosition.call(this, top, left);
