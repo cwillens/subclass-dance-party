@@ -36,3 +36,16 @@ body, a:link, a:visited, a:active{
   background-repeat: no-repeat;
   background-position: center; 
 }
+
+
+.bees{
+  border:1px solid blue;
+  border-radius:10px;
+  position:absolute;
+  height:100px;
+  width: 100px;
+  background-image: url("http://i.imgur.com/qrLEV.gif");
+  background-size: 140px 100px;
+  background-repeat: no-repeat;
+  background-position: center; 
+}
