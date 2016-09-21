@@ -1,31 +1,36 @@
 var makeBeeDancer = function(top, left, timeBetweenSteps) {
-  // debugger;
   makeDancer.call(this, top, left, timeBetweenSteps); // bind makeBlinkyDancer instance to 'this'
-  // need this call to give non-method properties to the subclass instance
-  this.$node = $('<span class="bees"></span>'); 
+  this.$node.addClass('bees');
 
   this.$node.mousedown(function(event) {
     $(this).animate({
       height: '150px',
       width: '150px'
     }, 500, function() {
-  // Animation complete.
     });
   });
 
   this.diameter = 100;
-  makeDancer.prototype.setPosition.call(this, top, left);
 };
 
 makeBeeDancer.prototype = Object.create(makeDancer.prototype);
 makeBeeDancer.prototype.constructor = makeBeeDancer;
 
 makeBeeDancer.prototype.step = function() {
-  //debugger;
 
 
-  makeDancer.prototype.step.call(this); // cannot do 'this.prototye.step.call' 
-  // because 'this' binds to instance of makeBlinkyDancer, 
-  // when you actually need to call the 'step' method of the superclass
-  //this.$node.toggle(); // 'this' is bound to an instance of makeBlinkyDancer class
+  makeDancer.prototype.step.call(this); 
+};
+
+
+makeBeeDancer.prototype.spin = function() {
+  var styleSettings = {
+    '-webkit-transform': 'translate(100px) rotate(20deg)',
+    '-webkit-transform-origin': '0 -250px',
+
+    'transform': 'translate(100px) rotate(20deg)',
+    'transform-origin': '0 -250px',
+  };
+
+  this.$node.animate(styleSettings, 0.5, function() { });
 };

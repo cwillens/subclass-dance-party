@@ -2,14 +2,14 @@ body, html{
   height:100%;
 }
 body{
-  margin: 0px;
+  margin: 20px;
   background-image: url("background_dance.jpg");
   font-size: 18px;
 }
 body, a:link, a:visited, a:active{
   color: lightblue;
 }
-.title, .addDancerButton{
+.title, .addDancerButton, .lineUpButton{
   padding:5px 12px;
   float:right;
 }
@@ -21,11 +21,17 @@ body, a:link, a:visited, a:active{
   background-color: #777;
 }
 .dancer{
-  border:10px solid red;
   border-radius:10px;
   position:absolute;
+  animation-duration: 3s;
+  animation-name: rotateY;
+  animation-iteration-count: infinite;
 }
-.cat{
+
+.blinkies{
+  border:10px solid red;
+}
+.cats{
   border:1px solid blue;
   border-radius:60px;
   position:absolute;
@@ -39,7 +45,6 @@ body, a:link, a:visited, a:active{
 
 
 .bees{
-  border:1px solid blue;
   border-radius:10px;
   position:absolute;
   height:100px;
@@ -48,4 +53,78 @@ body, a:link, a:visited, a:active{
   background-size: 140px 100px;
   background-repeat: no-repeat;
   background-position: center; 
+  animation-duration: 1s;
+  animation-name: skewX;
+  animation-iteration-count: infinite;
+}
+
+@keyframes rotateHead {
+  0% { 
+    -webkit-transform: rotate(30deg);
+    -moz-transform: rotate(30deg);
+    -o-transform: rotate(30deg);
+    -ms-transform: rotate(30deg);
+    transform: rotate(30deg)
+  }
+  50% { 
+    -webkit-transform: rotate(-30deg);
+    -moz-transform: rotate(-30deg);
+    -o-transform: rotate(-30deg);
+    -ms-transform: rotate(-30deg);
+    transform: rotate(-30deg)
+  }
+  100% {
+    -webkit-transform: rotate(30deg);
+    -moz-transform: rotate(30deg);
+    -o-transform: rotate(30deg);
+    -ms-transform: rotate(30deg);
+    transform: rotate(30deg)
+  }
+}
+
+@keyframes skewX {
+  0% { 
+    -webkit-transform: skewX(25deg);
+    -moz-transform: skewX(25deg);
+    -o-transform: skewX(25deg);
+    -ms-transform: skewX(25deg);
+    transform: skewX(25deg);
+  }
+  50% { 
+    -webkit-transform: skewX(-25deg);
+    -moz-transform: skewX(-25deg);
+    -o-transform: skewX(-25deg);
+    -ms-transform: skewX(-25deg);
+    transform: skewX(-25deg);
+  }
+  100% {
+    -webkit-transform: skewX(25deg);
+    -moz-transform: skewX(25deg);
+    -o-transform: skewX(25deg);
+    -ms-transform: skewX(25deg);
+    transform: skewX(25deg);
+  }
+}
+@keyframes rotateY {
+  0% { 
+    -webkit-transform: rotateY(45deg);
+    -moz-transform: rotateY(45deg);
+    -o-transform: rotateY(45deg);
+    -ms-transform: rotateY(45deg);
+    transform: rotateY(45deg);
+  }
+  50% { 
+    -webkit-transform: rotateY(-45deg);
+    -moz-transform: rotateY(-45deg);
+    -o-transform: rotateY(-45deg);
+    -ms-transform: rotateY(-45deg);
+    transform: rotateY(-45deg);
+  }
+  100% {
+    -webkit-transform: rotateY(45deg);
+    -moz-transform: rotateY(45deg);
+    -o-transform: rotateY(45deg);
+    -ms-transform: rotateY(45deg);
+    transform: rotateY(45deg);
+  }
 }

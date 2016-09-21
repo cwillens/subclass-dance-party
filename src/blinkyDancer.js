@@ -1,7 +1,9 @@
 var makeBlinkyDancer = function(top, left, timeBetweenSteps) {
+  timeBetweenSteps = 1000 * Math.random();
   // debugger;
   makeDancer.call(this, top, left, timeBetweenSteps); // bind makeBlinkyDancer instance to 'this'
   // need this call to give non-method properties to the subclass instance
+  this.$node.addClass('blinkies');
 };
 
 makeBlinkyDancer.prototype = Object.create(makeDancer.prototype);
@@ -11,7 +13,7 @@ makeBlinkyDancer.prototype.step = function() {
   makeDancer.prototype.step.call(this); // cannot do 'this.prototye.step.call' 
   // because 'this' binds to instance of makeBlinkyDancer, 
   // when you actually need to call the 'step' method of the superclass
-  //this.$node.toggle(); // 'this' is bound to an instance of makeBlinkyDancer class
+  this.$node.toggle(); // 'this' is bound to an instance of makeBlinkyDancer class
 };
 
 
